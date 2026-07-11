@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -29,7 +29,7 @@ const SORT_OPTIONS = [
   { value: 'price_desc', label: 'Harga: Termahal' },
 ];
 
-export default function ExplorePage() {
+function ExploreContent() {
   const [assets, setAssets] = useState<Asset[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [meta, setMeta] = useState<Meta>({ current_page: 1, last_page: 1, total: 0 });
@@ -234,5 +234,17 @@ export default function ExplorePage() {
       </div>
       <Footer />
     </>
+  );
+}
+
+export default function ExplorePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full border-4 border-brand-blue/30 border-t-brand-blue animate-spin" />
+      </div>
+    }>
+      <ExploreContent />
+    </Suspense>
   );
 }
