@@ -181,7 +181,7 @@ function ExploreContent() {
                       {/* Thumbnail */}
                       <div className={`bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 ${viewMode === 'grid' ? 'h-40' : 'w-32 h-24 shrink-0'} relative overflow-hidden`}>
                         {asset.thumbnail_url ? (
-                          <img src={`http://127.0.0.1:8000${asset.thumbnail_url}`} alt={asset.title}
+                          <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} alt={asset.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">

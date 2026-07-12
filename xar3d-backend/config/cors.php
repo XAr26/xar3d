@@ -14,11 +14,14 @@ return [
     'allowed_origins' => [
         'http://localhost:3000',
         'http://127.0.0.1:3000',
-        'http://192.168.1.200:3000',
         env('FRONTEND_URL', 'http://localhost:3000'),
     ],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => [
+        // Izinkan semua subdomain railway.app untuk development & staging
+        '#^https://.*\.up\.railway\.app$#',
+        '#^https://.*\.railway\.app$#',
+    ],
 
     'allowed_headers' => ['*'],
 

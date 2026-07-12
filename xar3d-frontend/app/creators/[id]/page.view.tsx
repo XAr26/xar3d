@@ -142,7 +142,7 @@ export default function CreatorProfilePage({ params }: { params: Promise<{ id: s
             <div className="relative z-10 flex flex-col md:flex-row gap-6 items-center md:items-start">
               {/* Avatar */}
               {profile?.avatar_url ? (
-                <img src={`http://127.0.0.1:8000${profile.avatar_url}`} alt={creator.name}
+                <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${profile.avatar_url}`} alt={creator.name}
                   className="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover ring-4 ring-brand-blue/30 shrink-0" />
               ) : (
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-tr from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-3xl shrink-0 shadow-[0_0_30px_rgba(59,130,246,0.3)]">
@@ -244,7 +244,7 @@ export default function CreatorProfilePage({ params }: { params: Promise<{ id: s
                       <div className="glass-hover glass rounded-2xl overflow-hidden border border-white/10 hover:border-brand-blue/30 transition-all group">
                         <div className="h-36 bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 relative">
                           {asset.thumbnail_url ? (
-                            <img src={`http://127.0.0.1:8000${asset.thumbnail_url}`} alt={asset.title}
+                            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} alt={asset.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center"><Package className="w-10 h-10 text-brand-muted/30" /></div>

@@ -15,7 +15,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'api.xar3d.com',
-      }
+      },
+      {
+        // Railway backend URL — sesuaikan jika subdomain berubah
+        protocol: 'https',
+        hostname: '*.up.railway.app',
+      },
     ],
   },
 };

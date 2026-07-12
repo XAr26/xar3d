@@ -119,7 +119,7 @@ export default function MyLibraryPage() {
                   className="glass rounded-2xl overflow-hidden border border-white/10 flex flex-col group">
                   <div className="h-40 relative bg-brand-dark/50">
                     {record.asset.thumbnail_url ? (
-                      <img src={`http://127.0.0.1:8000${record.asset.thumbnail_url}`} alt={record.asset.title}
+                      <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${record.asset.thumbnail_url}`} alt={record.asset.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center"><Package className="w-10 h-10 text-brand-muted/30" /></div>

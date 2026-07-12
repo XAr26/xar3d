@@ -71,7 +71,7 @@ export default function CreatorsPage() {
                   <Link href={`/creators/${creator.id}`}>
                     <div className="glass-hover glass rounded-2xl p-5 border border-white/10 hover:border-brand-blue/30 transition-all text-center group">
                       {creator.creator_profile?.avatar_url ? (
-                        <img src={`http://127.0.0.1:8000${creator.creator_profile.avatar_url}`} alt={creator.name}
+                        <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${creator.creator_profile.avatar_url}`} alt={creator.name}
                           className="w-16 h-16 rounded-2xl object-cover mx-auto mb-3 ring-2 ring-brand-blue/20 group-hover:ring-brand-blue/50 transition-all" />
                       ) : (
                         <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-xl mx-auto mb-3 shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all">

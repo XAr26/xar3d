@@ -136,7 +136,7 @@ export default function HomeContent() {
                   <div className="aspect-square bg-black/40 relative overflow-hidden shrink-0">
                     {asset.thumbnail_url ? (
                       <img 
-                        src={`http://127.0.0.1:8000${asset.thumbnail_url}`} 
+                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} 
                         alt={asset.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

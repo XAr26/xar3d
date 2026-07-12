@@ -85,7 +85,7 @@ export default function MyAssetsPage() {
                     <div className="flex gap-4 p-4">
                       <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-gradient-to-br from-brand-blue/10 to-brand-purple/10">
                         {asset.thumbnail_url
-                          ? <img src={`http://127.0.0.1:8000${asset.thumbnail_url}`} alt={asset.title} className="w-full h-full object-cover" />
+                          ? <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} alt={asset.title} className="w-full h-full object-cover" />
                           : <div className="w-full h-full flex items-center justify-center"><Package className="w-8 h-8 text-brand-muted/30" /></div>}
                       </div>
                       <div className="flex-1 min-w-0">

@@ -237,7 +237,7 @@ export default function AssetDetailPage({ params }: { params: Promise<{ id: stri
                     <Asset3DViewer />
                   </div>
                 ) : asset.thumbnail_url ? (
-                  <img src={`http://127.0.0.1:8000${asset.thumbnail_url}`} alt={asset.title}
+                  <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} alt={asset.title}
                     className="w-full h-full object-cover" />
                 ) : (
                   <Package className="w-24 h-24 text-brand-muted/20" />
@@ -455,7 +455,7 @@ export default function AssetDetailPage({ params }: { params: Promise<{ id: stri
             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 mb-6 flex gap-4">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-blue/20 to-brand-purple/20 shrink-0 overflow-hidden">
                 {asset.thumbnail_url ? (
-                  <img src={`http://127.0.0.1:8000${asset.thumbnail_url}`} className="w-full h-full object-cover" alt="" />
+                  <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} className="w-full h-full object-cover" alt="" />
                 ) : <Package className="w-8 h-8 m-4 text-brand-muted/50" />}
               </div>
               <div className="flex-1">

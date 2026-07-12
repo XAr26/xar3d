@@ -319,7 +319,7 @@ export default function AdminDashboardPage() {
                     
                     <div className="w-full md:w-48 h-32 rounded-xl overflow-hidden bg-black/40 shrink-0 relative">
                       {asset.thumbnail_url ? (
-                        <img src={`http://127.0.0.1:8000${asset.thumbnail_url}`} alt={asset.title} className="w-full h-full object-cover" />
+                        <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${asset.thumbnail_url}`} alt={asset.title} className="w-full h-full object-cover" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center"><Package className="w-8 h-8 text-white/20" /></div>
                       )}
@@ -433,7 +433,7 @@ export default function AdminDashboardPage() {
                         <td className="py-4 px-4"><span className="text-white text-sm">{r.asset?.title}</span></td>
                         <td className="py-4 px-4"><p className="text-sm text-brand-muted max-w-xs truncate">{r.reason}</p></td>
                         <td className="py-4 px-4">
-                          {r.proof_image && <a href={`http://127.0.0.1:8000/storage/${r.proof_image}`} target="_blank" className="text-blue-400 text-sm hover:underline">Lihat Bukti</a>}
+                          {r.proof_image && <a href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/${r.proof_image}`} target="_blank" className="text-blue-400 text-sm hover:underline">Lihat Bukti</a>}
                         </td>
                         <td className="py-4 px-4">
                           <span className={`px-3 py-1 rounded-full text-xs font-medium ${r.status === 'pending' ? 'bg-amber-500/10 text-amber-500' : r.status === 'approved' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500'}`}>
