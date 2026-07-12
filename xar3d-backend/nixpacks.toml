@@ -1,15 +1,21 @@
-[phases.setup]
-nixPkgs = ["php83", "php83Extensions.pdo", "php83Extensions.pdo_pgsql", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.gd", "php83Extensions.fileinfo", "php83Extensions.tokenizer", "php83Extensions.bcmath", "php83Extensions.ctype", "php83Extensions.openssl", "php83Extensions.pcre", "php83Extensions.session", "php83Extensions.json", "php83Extensions.intl", "php83Extensions.redis", "composer"]
+# Railway Nixpacks — Laravel Backend
+# PHP 8.3 + PostgreSQL + semua extension yang diperlukan
+# Cara yang benar: pakai NIXPACKS_PHP_VERSION bukan nama nixpkgs manual
+
+[variables]
+NIXPACKS_PHP_VERSION = "8.3"
 
 [phases.install]
-cmds = ["composer install --no-dev --optimize-autoloader --no-interaction"]
+cmds = [
+    "composer install --no-dev --optimize-autoloader --no-interaction --no-scripts"
+]
 
 [phases.build]
 cmds = [
     "php artisan config:cache",
     "php artisan route:cache",
-    "php artisan view:cache",
+    "php artisan view:cache"
 ]
 
 [start]
-cmd = "php artisan storage:link --force 2>/dev/null || true && php artisan migrate --force && php artisan queue:work --tries=3 --timeout=90 & php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "php artisan storage:link --force 2>/dev/null; php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"

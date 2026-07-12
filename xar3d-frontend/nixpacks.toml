@@ -1,11 +1,15 @@
-[phases.setup]
-nixPkgs = ["nodejs_20"]
+# Railway Nixpacks — Next.js Frontend
+# Node.js 22 LTS (versi terbaru stabil)
+# Railway akan baca .nvmrc atau field engines di package.json secara otomatis
+
+[variables]
+NIXPACKS_NODE_VERSION = "22"
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = ["npm ci --legacy-peer-deps"]
 
 [phases.build]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npm run start -- -p $PORT"
+cmd = "npm run start -- -p ${PORT:-3000}"
